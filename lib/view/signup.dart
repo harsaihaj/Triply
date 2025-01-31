@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:glitcheffect/glitcheffect.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:triply2/view/signup.dart';
+import 'package:triply2/view/login.dart';
 
-class loginScreen extends StatefulWidget {
-  const loginScreen({super.key});
+
+class signupScreen  extends StatefulWidget {
+  const signupScreen ({super.key});
 
   @override
-  _loginScreenState createState() => _loginScreenState();
+  State<signupScreen> createState() => _signupScreenState();
 }
 
-class _loginScreenState extends State<loginScreen> {
+class _signupScreenState extends State<signupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +22,7 @@ class _loginScreenState extends State<loginScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("Welcome To"),
+                Text("Create an account on"),
                 Text(
                   "TRIPLY",
                   style: GoogleFonts.dmSerifText(
@@ -31,6 +34,24 @@ class _loginScreenState extends State<loginScreen> {
                   ),
                 ),
                 const SizedBox(height: 30),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 30),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      icon: const Icon(Icons.person),
+                      labelText: 'Username',
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(color: Colors.black38),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(color: Colors.black38),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextField(
@@ -49,12 +70,33 @@ class _loginScreenState extends State<loginScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
+
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextField(
                     decoration: InputDecoration(
                       icon: const Icon(Icons.lock_open_rounded),
                       labelText: 'Password',
+
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(color: Colors.black38),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(color: Colors.black38),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 30),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      icon: const Icon(Icons.lock_open_rounded),
+                      labelText: 'Confirm Password',
+
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: const BorderSide(color: Colors.black38),
@@ -79,7 +121,7 @@ class _loginScreenState extends State<loginScreen> {
                       ),
                     ),
                     child: const Text(
-                      "Login",
+                      "Register",
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                   ),
@@ -95,17 +137,13 @@ class _loginScreenState extends State<loginScreen> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("Don't Have an Account?"),
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to the SignUp screen when button is pressed
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => signupScreen()), // Ensure this is the correct screen name
-                      );
-                    },
-                    child: Text("Register Here"),
-                  ),
+                  Text("Already Have an Account?"),
+                  TextButton(onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => loginScreen()),
+                    );
+                  }, child: Text("Login Here"))
                 ],
               ),
             ),
@@ -115,3 +153,4 @@ class _loginScreenState extends State<loginScreen> {
     );
   }
 }
+
