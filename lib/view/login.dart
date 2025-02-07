@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:triply2/view/signup.dart';
+import 'package:triply2/view/search.dart';
 
 class loginScreen extends StatefulWidget {
   const loginScreen({super.key});
@@ -71,7 +72,14 @@ class _loginScreenState extends State<loginScreen> {
                   width: MediaQuery.sizeOf(context).width / 2,
                   height: MediaQuery.sizeOf(context).width / 8,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                searchScreen()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff4966F0),
                       shape: RoundedRectangleBorder(
@@ -101,7 +109,9 @@ class _loginScreenState extends State<loginScreen> {
                       // Navigate to the SignUp screen when button is pressed
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => signupScreen()), // Ensure this is the correct screen name
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                signupScreen()), // Ensure this is the correct screen name
                       );
                     },
                     child: Text("Register Here"),

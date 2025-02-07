@@ -63,6 +63,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/logo/Untitled-1.png
+    - assets/triply_search.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
